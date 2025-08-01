@@ -65,3 +65,25 @@ variable "action_parameters" {
   type        = map(string)
   default     = {}
 }
+
+variable "instance_termination" {
+  description = "Enable the instance termination experiment."
+  type        = bool
+  default     = false
+}
+
+variable "instance_termination_parameters" {
+  description = "Configuration of the instance termination experiment."
+  type = object({
+    number_of_instances = optional(number, 1)
+    target_tag = optional(object({
+      key   = string
+      value = string
+    }))
+  })
+
+  validation {
+    condition     = var.instance_termination_parameters.number_of_instances > 0
+    error_message = "Number of instances to terminate must be greater than 0"
+  }
+}
