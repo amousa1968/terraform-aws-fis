@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
-}
-
-provider "aws" {
-  # Configuration options
-}
-
 resource "aws_fis_experiment_template" "example" {
   description = var.description
   role_arn    = var.role_arn
