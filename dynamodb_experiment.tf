@@ -23,9 +23,7 @@ resource "aws_fis_experiment_template" "dynamodb_table_throttle" {
     }
   }
 
-  tags = {
-    Name = "dynamodb-table-throttle"
-  }
+  tags = local.tags
 }
 
 resource "aws_fis_experiment_template" "dynamodb_add_latency" {
@@ -53,9 +51,7 @@ resource "aws_fis_experiment_template" "dynamodb_add_latency" {
     }
   }
 
-  tags = {
-    Name = "dynamodb-add-latency"
-  }
+  tags = local.tags
 }
 
 resource "aws_fis_experiment_template" "dynamodb_error_injection" {
@@ -83,9 +79,7 @@ resource "aws_fis_experiment_template" "dynamodb_error_injection" {
     }
   }
 
-  tags = {
-    Name = "dynamodb-error-injection"
-  }
+  tags = local.tags
 }
 
 resource "aws_fis_experiment_template" "dynamodb_backup_failure" {
@@ -104,16 +98,14 @@ resource "aws_fis_experiment_template" "dynamodb_backup_failure" {
   }
 
   action {
-    name      = "backup-failure"
-    action_id = "aws:dynamodb:fail-backup"
+    name      = "fail-backup"
+    action_id = "aws:dynamodb:terminate-instances"
     
     target {
-      key   = "Tables"
-      value = "dynamodb-backup"
+      key   = "Instances"
+      value = "EC2"
     }
   }
 
-  tags = {
-    Name = "dynamodb-backup-failure"
-  }
+  tags = local.tags
 }
