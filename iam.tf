@@ -1,5 +1,5 @@
 resource "aws_iam_role" "fis_role" {
-  name = "aws-fis-role"
+  name = var.iam_role_name_fis
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -24,7 +24,7 @@ resource "aws_iam_role_policy_attachment" "fis_role_policy" {
 # AWSFaultInjectionServiceRolePolicy managed policy
 #------------------------------------------------------
 resource "aws_iam_role" "experiment_runner" {
-  name = "experiment-runner-role"
+  name = var.iam_role_name_experiment_runner
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"

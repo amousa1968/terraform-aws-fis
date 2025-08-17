@@ -123,3 +123,80 @@ variable "dynamodb_gsi_name" {
   description = "Name of the DynamoDB Global Secondary Index for experiments"
   type        = string
 }
+
+# Variables to replace hardcoded values
+
+variable "iam_role_name_fis" {
+  description = "Name of the IAM role for AWS FIS"
+  type        = string
+}
+
+variable "iam_role_name_experiment_runner" {
+  description = "Name of the IAM role for experiment runner"
+  type        = string
+}
+
+variable "instance_termination_default_tag_key" {
+  description = "Default tag key for instance termination experiment"
+  type        = string
+}
+
+variable "instance_termination_default_tag_value" {
+  description = "Default tag value for instance termination experiment"
+  type        = string
+}
+
+variable "instance_termination_experiment_name" {
+  description = "Name for the instance termination experiment"
+  type        = string
+}
+
+variable "rds_failover_selection_mode" {
+  description = "Selection mode for RDS failover experiment"
+  type        = string
+}
+
+variable "rds_reboot_selection_mode" {
+  description = "Selection mode for RDS reboot experiment"
+  type        = string
+}
+
+variable "rds_cpu_stress_selection_mode" {
+  description = "Selection mode for RDS CPU stress experiment"
+  type        = string
+}
+
+variable "dynamodb_throttle_selection_mode" {
+  description = "Selection mode for DynamoDB throttle experiment"
+  type        = string
+}
+
+variable "dynamodb_latency_selection_mode" {
+  description = "Selection mode for DynamoDB latency experiment"
+  type        = string
+}
+
+variable "dynamodb_error_injection_selection_mode" {
+  description = "Selection mode for DynamoDB error injection experiment"
+  type        = string
+}
+
+variable "dynamodb_backup_failure_selection_mode" {
+  description = "Selection mode for DynamoDB backup failure experiment"
+  type        = string
+}
+
+variable "ecs_task_termination_selection_mode" {
+  description = "Selection mode for ECS task termination experiment"
+  type        = string
+}
+
+variable "ecs_cpu_stress_selection_mode" {
+  description = "Selection mode for ECS CPU stress experiment"
+  type        = string
+}
+
+variable "ecs_network_latency_selection_mode" {
+  description = "Selection mode for ECS network latency experiment"
+  type        = string
+}
