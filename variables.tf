@@ -36,6 +36,7 @@ variable "target_selection_mode" {
 variable "target_resource_tags" {
   description = "Map of resource tags to identify target resources"
   type        = map(string)
+  default     = {}
 }
 
 variable "action_name" {
@@ -56,6 +57,7 @@ variable "action_description" {
 variable "action_parameters" {
   description = "Parameters for the action"
   type        = map(string)
+  default     = {}
 }
 
 variable "instance_termination" {
@@ -199,4 +201,41 @@ variable "ecs_cpu_stress_selection_mode" {
 variable "ecs_network_latency_selection_mode" {
   description = "Selection mode for ECS network latency experiment"
   type        = string
+}
+
+# Add the missing enabled variables for ECS
+variable "ecs_fargate_task_termination_enabled" {
+  description = "Enable the ECS Fargate task termination experiment."
+  type        = bool
+  default     = false
+}
+
+variable "ecs_fargate_task_termination_parameters" {
+  description = "Parameters for the ECS Fargate task termination experiment."
+  type        = map(string)
+  default     = {}
+}
+
+variable "ecs_fargate_cpu_stress_enabled" {
+  description = "Enable the ECS Fargate CPU stress experiment."
+  type        = bool
+  default     = false
+}
+
+variable "ecs_fargate_cpu_stress_parameters" {
+  description = "Parameters for the ECS Fargate CPU stress experiment."
+  type        = map(string)
+  default     = {}
+}
+
+variable "ecs_fargate_network_latency_enabled" {
+  description = "Enable the ECS Fargate network latency experiment."
+  type        = bool
+  default     = false
+}
+
+variable "ecs_fargate_network_latency_parameters" {
+  description = "Parameters for the ECS Fargate network latency experiment."
+  type        = map(string)
+  default     = {}
 }

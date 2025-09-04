@@ -26,13 +26,12 @@ resource "aws_fis_experiment_template" "instance_termination" {
     selection_mode = "COUNT(${var.instance_termination_parameters.number_of_instances})"
 
     resource_tag {
-      key   = (var.instance_termination_parameters.target_tag != null) ? var.instance_termination_parameters.target_tag.key : "chaos"
-      value = (var.instance_termination_parameters.target_tag != null) ? var.instance_termination_parameters.target_tag.value : "ready"
+      key   = (var.instance_termination_parameters.target_tag != null) ? var.instance_termination_parameters.target_tag.key : var.instance_termination_default_tag_key
+      value = (var.instance_termination_parameters.target_tag != null) ? var.instance_termination_parameters.target_tag.value : var.instance_termination_default_tag_value
     }
   }
 
   tags = {
-    "Name" = "ec2-instance-termination"
+    "Name" = var.instance_termination_experiment_name
   }
 }
-

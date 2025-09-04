@@ -1,7 +1,7 @@
 name = "dummy"
 description = "dummy"
 role_arn = "dummy"
-stop_condition_alarm_arn = "dummy"
+stop_condition_alarm_arn = "arn:aws:cloudwatch:alarm:us-east-1:123456789012:alarm:example-alarm"
 target_name = "dummy"
 target_resource_type = "dummy"
 target_selection_mode = "dummy"
@@ -15,5 +15,4 @@ instance_termination_parameters = {}
 rds_failover_enabled = false
 rds_reboot_enabled = false
 rds_cpu_stress_enabled = false
-environment = "dummy"
 tags = {}
